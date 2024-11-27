@@ -10,10 +10,11 @@ int	main()
 		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
 		if (!std::getline(std::cin, command)) { // Check if input failed (e.g., Ctrl+D)
 			std::cout << "\nExiting the program.\n";
-			exit(0);
+			break ;
 		}
 		if (command == "ADD") {
 			phonebook.addContact();
+			//phonebook.printAllContacts();
 		} else if (command == "SEARCH") {
 			std::cout << "Enter the contact index to view details (1-8): ";
 			std::cin >> index;
@@ -26,7 +27,6 @@ int	main()
 			std::cout << "Invalid command, please try again.\n";
 		}
 	}
-
 	return (0);
 }
 
