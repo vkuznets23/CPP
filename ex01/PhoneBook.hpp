@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:50:40 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/28 10:50:44 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:20:47 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,17 @@ class PhoneBook {
 
 		void	addContact() {
 			if (contactCount < 8) {
-				array[contactCount].setContactDetails();
+				if(!array[contactCount].setContactDetails()) {
+					std::cout << "\nExiting the program.\n";
+            				exit(0); // Clean exit
+				}
 				contactCount++;
 			} else {
 				std::cout << "Phonebook is full, replacing the oldest contact.\n";
-				array[7].setContactDetails();
+				if (!array[7].setContactDetails()) {
+            				std::cout << "\nExiting the program.\n";
+            				exit(0); // Clean exit
+        			}
 			}
 		}
 

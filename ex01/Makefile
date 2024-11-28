@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/11/28 11:02:50 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/11/28 11:19:51 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,9 @@ $(NAME): $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
+
+# Explicit dependencies for each object file
+PhoneBook.o: PhoneBook.cpp
 
 clean:
 	rm -f $(OBJS)

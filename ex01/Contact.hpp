@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:50:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/28 10:50:50 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/11/28 11:16:06 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,33 @@ class Contact {
 		std::string phoneNumber;
 		std::string darkestSecret;
 
-		void	getInput(std::string &field, const std::string &prompt) {
-			do {
-				std::cout << prompt;
-				if (!std::getline(std::cin, field)) {
-					std::cout << "\nExiting the program.\n";
-					return ; //!!!!!
-				}
-				if (field.empty()) {
-					std::cout << "All fields must be filled in!\n";
-				}
-			} while (field.empty());
+		bool	getInput(std::string &field, const std::string &prompt) {
+			std::cout << prompt;
+			if (!std::getline(std::cin, field)) {
+				//std::cout << "\nExiting the program.\n";
+				return false; //!!!!!
+			}
+			if (field.empty()) {
+				std::cout << "All fields must be filled in!\n";
+				return getInput(field, prompt); // Retry input
+			}
+			return true;
 				
 		}
 
 	public:
-		void 	setContactDetails() {
-			getInput(firstName, "Enter first name: ");
-			getInput(lastName, "Enter last name: ");
-			getInput(nickname, "Enter nickname: ");
-			getInput(phoneNumber, "Enter phone number: ");
-			getInput(darkestSecret, "Enter darkest secret: ");
+		bool	setContactDetails() {
+			if (!getInput(firstName, "Enter first name: "))
+				return false;
+			if (!getInput(lastName, "Enter last name: "))
+				return false;
+			if (!getInput(nickname, "Enter nickname: "))
+				return false;
+			if (!getInput(phoneNumber, "Enter phone number: "))
+				return false;
+			if (!getInput(darkestSecret, "Enter darkest secret: "))
+				return false;
+			return true;
    		}
 
 		std::string formatField(const std::string &field){
