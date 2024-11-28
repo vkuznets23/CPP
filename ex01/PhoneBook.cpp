@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 10:50:29 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/11/28 10:50:34 by vkuznets         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PhoneBook.hpp"
 
 int	main()
@@ -14,7 +26,6 @@ int	main()
 		}
 		if (command == "ADD") {
 			phonebook.addContact();
-			//phonebook.printAllContacts();
 		} else if (command == "SEARCH") {
 			std::cout << "Enter the contact index to view details (1-8): ";
 			std::cin >> index;

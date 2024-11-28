@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 10:50:40 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/11/28 10:50:44 by vkuznets         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 #define PHONEBOOK_HPP
@@ -33,28 +44,12 @@ class PhoneBook {
 			          << std::setw(10) << "First Name" << "|"
 			          << std::setw(10) << "Last Name" << "|"
 			          << std::setw(10) << "Nickname" << "\n";
-				std::cout << std::string(44, '-') << "\n"; // Separator line
+				std::cout << std::string(44, '-') << "\n";
 				array[index - 1].printRow(index);
 			} else {
 				std::cout << "Invalid index.\n";
 			}		
 		}
-
-		/*void printAllContacts() {
-			if (contactCount == 0) {
-				std::cout << "Phonebook is empty.\n";
-				return;
-			}
-			std::cout << std::setw(10) << "Index" << "|"
-			          << std::setw(10) << "First Name" << "|"
-			          << std::setw(10) << "Last Name" << "|"
-			          << std::setw(10) << "Nickname" << "\n";
-			std::cout << std::string(44, '-') << "\n"; // Separator line
-
-			for (int i = 0; i < contactCount; i++) {
-				array[i].printRow(i + 1);
-			}
-		}*/
 };
 
 #endif

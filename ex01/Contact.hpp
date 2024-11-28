@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Contact.hpp                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/11/28 10:50:48 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/11/28 10:50:50 by vkuznets         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CONTACT_HPP
 #define CONTACT_HPP
 
@@ -14,7 +26,7 @@ class Contact {
 				std::cout << prompt;
 				if (!std::getline(std::cin, field)) {
 					std::cout << "\nExiting the program.\n";
-					exit(0);
+					return ; //!!!!!
 				}
 				if (field.empty()) {
 					std::cout << "All fields must be filled in!\n";
