@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/11/28 10:50:55 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/11/28 11:02:50 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,15 +15,14 @@ CC = c++
 CFLAGS = -Werror -Wall -Wextra
 
 SRCS = PhoneBook.cpp
-
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:

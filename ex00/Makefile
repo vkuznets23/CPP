@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:51:15 by vkuznets          #+#    #+#              #
-#    Updated: 2024/11/28 10:51:17 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/11/28 11:03:38 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,14 +16,14 @@ CFLAGS = -Werror -Wall -Wextra
 
 SRCS = megaphone.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
 
-%.o: %.c
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
