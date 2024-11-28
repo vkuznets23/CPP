@@ -5,38 +5,48 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 10:50:29 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/28 10:58:47 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/11/28 14:25:26 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/11/28 14:38:27 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <iomanip> 
 
-int	main()
-{
-	PhoneBook	phonebook;
-	std::string	command;
-	int		index;
+// Constructor definition
+PhoneBook::PhoneBook() : contactCount(0) {}
 
-	while (true) {
-		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-		if (!std::getline(std::cin, command)) { // Check if input failed (e.g., Ctrl+D)
-			std::cout << "\nExiting the program.\n";
-			break ;
-		}
-		if (command == "ADD") {
-			phonebook.addContact();
-		} else if (command == "SEARCH") {
-			std::cout << "Enter the contact index to view details (1-8): ";
-			std::cin >> index;
-			std::cin.ignore(); //cin add new line we need to ignore it
-			phonebook.searchContact(index);
-		} else if (command == "EXIT") {
-			std::cout << "\nExiting the program.\n";
-			break ;
-		} else {
-			std::cout << "Invalid command, please try again.\n";
-		}
-	}
-	return (0);
+// addContact method definition
+void PhoneBook::addContact() {
+    if (contactCount < 8) {
+        if (!array[contactCount].setContactDetails()) {
+            std::cout << "\nExiting the program.\n";
+            exit(0);
+        }
+        contactCount++;
+    } else {
+        std::cout << "Phonebook is full, replacing the oldest contact.\n";
+        if (!array[7].setContactDetails()) {
+            std::cout << "\nExiting the program.\n";
+            exit(0);
+        }
+    }
+}
+
+// searchContact method definition
+void PhoneBook::searchContact(int index) {
+    if (contactCount == 0) {
+        std::cout << "No contacts in the phonebook\n";
+        return;
+    }
+    if (index >= 1 && index <= contactCount) {
+        std::cout << std::setw(10) << "Index" << "|"
+                  << std::setw(10) << "First Name" << "|"
+                  << std::setw(10) << "Last Name" << "|"
+                  << std::setw(10) << "Nickname" << "\n";
+        std::cout << std::string(44, '-') << "\n";
+        array[index - 1].printRow(index);
+    } else {
+        std::cout << "Invalid index.\n";
+    }
 }

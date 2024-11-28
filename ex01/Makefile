@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/11/28 11:19:51 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/11/28 14:37:02 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,10 @@ NAME = phonebook
 CC = c++
 CFLAGS = -Werror -Wall -Wextra
 
-SRCS = PhoneBook.cpp
+SRCS = PhoneBook.cpp \
+	Contact.cpp \
+	main.cpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
@@ -24,9 +27,6 @@ $(NAME): $(OBJS)
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c -o $@ $<
-
-# Explicit dependencies for each object file
-PhoneBook.o: PhoneBook.cpp
 
 clean:
 	rm -f $(OBJS)
