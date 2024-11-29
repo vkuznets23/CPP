@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:50:29 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/28 10:58:47 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/11/29 11:59:42 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main()
 		if (command == "ADD") {
 			phonebook.addContact();
 		} else if (command == "SEARCH") {
+			phonebook.displayContacts();
 			std::cout << "Enter the contact index to view details (1-8): ";
 			std::cin >> index;
 			std::cin.ignore(); //cin add new line we need to ignore it

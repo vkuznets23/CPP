@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:50:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/28 14:33:09 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/11/29 13:56:52 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,20 @@
 
 class Contact {
 	private:
-		std::string firstName;
-		std::string lastName;
-		std::string nickname;
-		std::string phoneNumber;
-		std::string darkestSecret;
+		std::string _firstName;
+		std::string _lastName;
+		std::string _nickname;
+		std::string _phoneNumber;
+		std::string _darkestSecret;
 
 		bool	getInput(std::string &field, const std::string &prompt);
 
 	public:
-		bool	setContactDetails();
-		std::string formatField(const std::string &field);
-		void	printRow(int index);
+		Contact();
+		bool		setContactDetails();
+		std::string	formatField(const std::string &field);
+		void		printRow(int index);
+		void		printDetails();
 };
 
 #endif
