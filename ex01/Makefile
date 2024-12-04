@@ -6,13 +6,13 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/11/28 14:37:02 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/04 13:26:14 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = phonebook
 CC = c++
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -std=c++98
 
 SRCS = PhoneBook.cpp \
 	Contact.cpp \
