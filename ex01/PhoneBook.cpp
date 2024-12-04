@@ -6,12 +6,13 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 14:25:26 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/29 14:06:01 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:27:56 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include <iomanip> 
+#include <cstdlib>
 
 // Constructor definition
 PhoneBook::PhoneBook() : _nextIndex(0), _contactCount(0) {}
