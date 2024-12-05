@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 10:50:40 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/11/29 13:48:14 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/05 14:49:36 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define PHONEBOOK_HPP
 
 # include <iostream>
+# include <string>
 # include "Contact.hpp"
 
 class PhoneBook {

@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/05 15:09:02 by vkuznets         ###   ########.fr        #
+#    Created: 2024/12/05 15:50:19 by vkuznets          #+#    #+#              #
+#    Updated: 2024/12/05 15:51:39 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = phonebook
+NAME = HarlComplains
 CC = c++
-CFLAGS = -Werror -Wall -Wextra
+CFLAGS = -Werror -Wall -Wextra -std=c++98
 
-SRCS = PhoneBook.cpp \
-	Contact.cpp \
+SRCS = Harl.cpp \
 	main.cpp
 
-HDRS = PhoneBook.hpp \
-	Contact.hpp
+HDRS = Harl.hpp
 
 OBJS = $(SRCS:.cpp=.o)
 

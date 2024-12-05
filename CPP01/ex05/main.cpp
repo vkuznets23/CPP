@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/04 14:54:49 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/05 11:08:08 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/12/05 13:46:17 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/12/05 13:48:05 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-Zombie*	zombieHorde( int N, std::string name ) {
-	if (N < 1)
-		return NULL;
+int	main() {
+	Harl	harl;
 
-	Zombie *horde = new Zombie[N];
-	for (int i = 0; i < N; i++) {
-		horde[i].setName(name);
-	}
+	harl.complain("DEBUG");
+	harl.complain("INFO");
+	harl.complain("WARNING");
+	harl.complain("ERROR");
 
-	return horde;
+	return 0;
 }
