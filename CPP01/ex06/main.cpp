@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:56:07 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/05 16:08:40 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/05 16:11:14 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int ac, char **av) {
 	}
 
 	level = av[1];
+	caseNum = 0;
 	if (level == "DEBUG")
 		caseNum = 1;
 	else if (level == "INFO")
