@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 15:51:59 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/04 15:52:02 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/09 13:16:40 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = make_horde
 all: $(NAME)
 
 CPP := c++
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -Wall -Wextra -Werror
 
 SOURCE := main.cpp Zombie.cpp zombieHorde.cpp
 OBJ := $(SOURCE:.cpp=.o)

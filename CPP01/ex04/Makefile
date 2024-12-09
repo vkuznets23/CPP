@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 17:14:52 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/04 17:15:28 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/09 13:17:14 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = sed++
 all: $(NAME)
 
 CPP := c++
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -Wall -Wextra -Werror
 
 SOURCE := main.cpp
 OBJ := $(SOURCE:.cpp=.o)

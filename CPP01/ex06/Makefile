@@ -6,13 +6,13 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/05 15:50:19 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/05 16:10:37 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/09 13:17:34 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = harlFilter
 CC = c++
-CFLAGS = -Werror -Wall -Wextra -std=c++98
+CFLAGS = -Werror -Wall -Wextra
 
 SRCS = Harl.cpp \
 	main.cpp

@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 15:51:37 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/04 15:52:18 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/09 13:16:52 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = brain
 all: $(NAME)
 
 CPP := c++
-FLAGS := -Wall -Wextra -Werror -std=c++98
+FLAGS := -Wall -Wextra -Werror
 
 SOURCE := main.cpp
 OBJ := $(SOURCE:.cpp=.o)
