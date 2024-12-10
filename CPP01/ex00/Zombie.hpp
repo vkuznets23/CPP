@@ -6,12 +6,14 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:53:58 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/04 14:28:04 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:34:43 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ZOMBIE_HPP
 #define ZOMBIE_HPP
+
+#include <iostream>
 
 class	Zombie {
 	private:

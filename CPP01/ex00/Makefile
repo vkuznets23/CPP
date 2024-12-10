@@ -6,7 +6,7 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/28 10:50:53 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/04 14:39:38 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/10 10:32:57 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,13 @@ SRCS = Zombie.cpp \
 	randomChump.cpp \
 	main.cpp
 
+HDRS = Zombie.hpp
+
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HDRS)
 	$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
 
 %.o: %.cpp
