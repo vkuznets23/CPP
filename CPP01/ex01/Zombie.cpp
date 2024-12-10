@@ -6,11 +6,10 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 13:56:17 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/04 15:40:14 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/10 11:17:07 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include "Zombie.hpp"
 
 //default constructor
