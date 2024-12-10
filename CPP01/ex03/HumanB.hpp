@@ -6,15 +6,14 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:18:03 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/04 16:33:58 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:54:49 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HUMANB_HPP
 #define HUMANB_HPP
 
-#include "Weapon.hpp"
-# include <iostream>
+# include "Weapon.hpp"
 
 class	HumanB {
 	private:

@@ -6,30 +6,38 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/04 16:24:18 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/09 13:17:03 by vkuznets         ###   ########.fr        #
+#    Updated: 2024/12/10 12:59:48 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = violence
-all: $(NAME)
+CC = c++
+CFLAGS = -Werror -Wall -Wextra
 
-CPP := c++
-FLAGS := -Wall -Wextra -Werror
+SRCS = HumanA.cpp \
+	HumanB.cpp \
+	Weapon.cpp \
+	main.cpp
 
-SOURCE := main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
-OBJ := $(SOURCE:.cpp=.o)
+HDRS = HumanA.hpp \
+	HumanB.hpp \
+	Weapon.hpp
 
-$(NAME) : $(OBJ)
-	$(CPP) $(FLAGS) $(OBJ) -o $(NAME) 
+OBJS = $(SRCS:.cpp=.o)
 
-%.o : %.cpp
-	$(CPP) $(FLAGS) -c $< -o $@
+all : $(NAME)
+
+$(NAME): $(OBJS) $(HDRS)
+	$(CC) -o $(NAME) $(CFLAGS) $(OBJS)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

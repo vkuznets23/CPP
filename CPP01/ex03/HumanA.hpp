@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 16:05:44 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/04 16:34:34 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/10 12:54:38 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define HUMAN_HPP
 
 # include "Weapon.hpp"
-# include <iostream> 
 
 class HumanA {
 	private:
