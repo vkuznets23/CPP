@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:02:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/10 16:36:46 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:41:50 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ public:
 	void	attack(const std::string &target);
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
-
-
 };
 
 #endif
