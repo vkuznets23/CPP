@@ -1,0 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    tests.txt                                          :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/12/11 10:52:40 by vkuznets          #+#    #+#              #
+#    Updated: 2024/12/11 10:59:54 by vkuznets         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+1. Basic Replacement
+2. Empty s1 (Substring to find) => "Error: The substring to replace (s1) cannot be empty."
+3. Empty s2 (Replacement)
+4. Identical s1 and s2
+5. Multiple Occurrences of s1
+6. No Occurrences of s1
+7. Special Characters in s1 or s2 (!')
+8. File Not Found (If the input file doesn't exist or can't be opened.)
+9. Permission Denied for File Creation
+10. File with Mixed Case Sensitivity (world but in the file its World or WORLD or wORLD)
+11. Empty Input File (The output file should be created, but it should remain empty)
