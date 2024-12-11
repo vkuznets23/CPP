@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 11:38:49 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/05 13:49:41 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:10:03 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class	Harl {
 		void	_error(void);
 	
 	public:
-		//call private functions depending on the level passed as param
 		void	complain(std::string level);
 };
 
