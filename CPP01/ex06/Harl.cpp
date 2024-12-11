@@ -6,14 +6,14 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/05 15:55:39 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/05 16:03:59 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/11 11:22:08 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 
 void	Harl::_debug(void) {
-	std::cout << "DEBUG: I love having extra bacon for my burger" << std::endl;
+	std::cout << "DEBUG: I love having extra bacon for my burger." << std::endl;
 }
 
 void	Harl::_info(void) {
