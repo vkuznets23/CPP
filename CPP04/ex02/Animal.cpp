@@ -6,13 +6,13 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 15:11:15 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 09:49:33 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/12 15:55:01 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
-Animal::Animal() _type("Animal") {std::cout << "Default Animal constructor called" << std::endl; }
+Animal::Animal() {std::cout << "Default Animal constructor called" << std::endl; }
 
 Animal::Animal(std::string type) : _type(type) {std::cout << "Parameterized Animal constructor called" << std::endl; }
 
@@ -21,7 +21,7 @@ Animal::Animal(const Animal &origin) {
 	_type = origin._type;
 }
 
-Animal &Animal::operator = (const Animal &origin) {
+Animal &Animal::operator=(const Animal &origin) {
 	std::cout << "Copy assignment operator called" << std::endl;
 	if (this == &origin) {
 		return *this;

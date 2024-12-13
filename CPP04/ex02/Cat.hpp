@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 16:30:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 09:56:26 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/12/12 11:13:55 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/12/12 15:49:19 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-	delete meta;
-	delete j;
-	delete i;
+class	Cat : public Animal {
+private:
+	Brain	*_catBrain;
+public:
+	Cat();
+	Cat(const Cat &origin);
+	Cat &operator=(const Cat &prigin);
+	~Cat();
 
-	return 0;
-}
+	void	makeSound() const override;
+};
+
+#endif

@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 16:30:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 09:56:26 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/12/12 15:16:34 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/12/12 15:20:56 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
-#include "Cat.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-int main()
-{
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
-	
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
+#include <iostream>
 
-	delete meta;
-	delete j;
-	delete i;
+class	Brain {
+private:
+	std::string	_ideas[100];
 
-	return 0;
-}
+public:
+	Brain();
+	Brain(std::string ideas[100]);
+	Brain(const Brain &origin);
+	Brain &operator=(const Brain &origin);
+	~Brain();
+};
+
+#endif
