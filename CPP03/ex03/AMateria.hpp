@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 14:01:44 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 10:38:18 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/12/13 10:00:10 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/12/13 10:05:16 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#pragma once
 
-# include "ClapTrap.hpp"
-
-class	FragTrap : public ClapTrap {
+class	AMateria {
+protected:
+	std::string const _type
 public:
-	FragTrap();
-	FragTrap(const std::string &name);
-	FragTrap(const FragTrap &origin);
-	FragTrap &operator = (const FragTrap &origin);
-	~FragTrap();
-
-	void	highFiversGuys();
+	AMateria(std::string const &_type);
 };
-
-#endif

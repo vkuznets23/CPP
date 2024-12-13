@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:02:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/10 14:13:51 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:06:03 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ private:
 	unsigned int	_attackDamage;
 public:
 	ClapTrap();
-	ClapTrap(std::string name);
+	ClapTrap(std::string &name);
 	ClapTrap(const ClapTrap &origin);
 	ClapTrap &operator = (const ClapTrap &origin);
 	~ClapTrap();

@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:08:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/10 14:42:28 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 10:06:39 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 ClapTrap::ClapTrap() :  _name("Default name"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {std::cout << "Default constructor called" << std::endl; };
 
-ClapTrap::ClapTrap(std::string name) :  _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {std::cout << "Constructor with name called" << std::endl; };
+ClapTrap::ClapTrap(std::string &name) :  _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {std::cout << "Constructor with name called" << std::endl; };
 
 ClapTrap &ClapTrap::operator = (const ClapTrap &origin) {
 	std::cout << "ClapTrap copy assignment operator called" << std::endl;
