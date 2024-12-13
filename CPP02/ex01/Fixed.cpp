@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:58:47 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/09 14:11:14 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:52:08 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ Fixed &Fixed::operator=(const Fixed &original) {
 	return *this;
 }
 
+//converts int to the corresponding fixed-point value
 Fixed::Fixed(const int intVal) {
 	std::cout << "Int constructor called" << std::endl;
 	_fixedPointValue = intVal << _fractionalBitsValue;
 }
 
+//converts float to the corresponding fixed-point value
 Fixed::Fixed(const float floatVal) {
 	std::cout << "Float constructor called" << std::endl;
 	_fixedPointValue = roundf(floatVal * (1 << _fractionalBitsValue));
@@ -57,6 +59,12 @@ float Fixed::toFloat() const {
 int	Fixed::toInt() const {
 	return _fixedPointValue >> _fractionalBitsValue;
 }
+
+//The operator << is a special function that allows you to use the << operator
+//to insert objects into an output stream 
+//@std::ostream &os — stream to which the data will be written
+//@const Fixed &fixed — object whose data we want to output
+//After performing the insertion into the stream, the function returns the output stream os
 
 std::ostream &operator << (std::ostream &os, const Fixed &fixed)
 {

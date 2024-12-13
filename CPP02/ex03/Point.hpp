@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:00:08 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/09 16:36:24 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:57:47 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ private:
 
 public:
 	Point();				//default constructor
-	Point(Fixed x, Fixed y);
+	Point(const Fixed &x, const Fixed &y);
 	Point(const Point &origin);		//copy constructor
 	~Point();				//destructor
 

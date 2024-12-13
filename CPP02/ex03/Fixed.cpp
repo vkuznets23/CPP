@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:58:47 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/09 16:38:46 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:58:37 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ Fixed	Fixed::operator+(const Fixed &original) const {
 
 Fixed	Fixed::operator-(const Fixed &original) const {
 	Fixed	temp;
-	temp.setRawBits(_fixedPointValue + original._fixedPointValue);
+	temp.setRawBits(_fixedPointValue - original._fixedPointValue);
 	return temp;
 }
 

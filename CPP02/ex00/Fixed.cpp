@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 10:58:47 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/09 13:15:49 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 12:44:52 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ Fixed::Fixed() : _fixedPointValue(0) {std::cout << "Default constructor called" 
 
 Fixed::Fixed(const Fixed &original) {
 	std::cout << "Copy constructor called" << std::endl;
-	// Directly copy the data members from original to the new object
-	//_fixedPointValue = original._fixedPointValue; or this->_fixedPointValue = original._fixedPointValue
 	*this = original;
 }
 
@@ -27,7 +25,6 @@ Fixed &Fixed::operator=(const Fixed &original) {
 	if (this == &original) {
 		return *this;
 	}
-	//_fixedPointValue = original._fixedPointValue;
 	_fixedPointValue = original.getRawBits();
 	return *this;
 }

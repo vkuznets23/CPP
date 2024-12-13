@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:04:26 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/09 16:38:55 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 13:57:59 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Point::Point() : _x(), _y() {}
 
-Point::Point(Fixed x, Fixed y) : _x(x), _y(y) {}
+Point::Point(const Fixed &x, const Fixed &y) : _x(x), _y(y) {}
 
 Point::Point (const Point &origin) {
 	*this = origin;
