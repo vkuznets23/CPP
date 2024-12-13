@@ -1,20 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/13 10:00:10 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 10:05:16 by vkuznets         ###   ########.fr       */
+/*   Created: 2024/12/13 10:48:33 by vkuznets          #+#    #+#             */
+/*   Updated: 2024/12/13 11:33:54 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class	AMateria {
-protected:
-	std::string const _type
+# include "ScavTrap.hpp"
+# include "FragTrap.hpp"
+
+class	DiamondTrap : public ScavTrap, public FragTrap {
+private:
+	std::string	_name;
 public:
-	AMateria(std::string const &_type);
+	DiamondTrap();
+	DiamondTrap(const std::string &name);
+	DiamondTrap(const DiamondTrap &origin);
+	DiamondTrap &operator=(const DiamondTrap &origin);
+	~DiamondTrap();
+
+	void	whoAmI();
 };

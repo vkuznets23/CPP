@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:05:40 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 11:42:41 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/13 11:42:59 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;
-	std::cout << "FragTrap constructor with name " << name << " called"  << std::endl;
+	std::cout << "FragTrap constructor with name " << name << " called" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &origin) : ClapTrap(origin) {
