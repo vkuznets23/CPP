@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:08:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/16 11:23:17 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:01:32 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,27 +52,28 @@ void	ClapTrap::attack(const std::string &target) {
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
-	if (!this->_hitPoints) {
+	if (!_hitPoints) {
 		std::cout << "ClapTrap " << _name << " is almost dead, it cannot loose " << amount << " damage" << std::endl;
 		return ;	
 	}
-	this->_hitPoints = (_hitPoints > amount ? _hitPoints - amount : 0);
+	_hitPoints = (_hitPoints > amount ? _hitPoints - amount : 0);
 	std::cout << "ClapTrap " << _name << " took " << amount << " damage point(s) " 
 		<< (_hitPoints ? "It's still alive" : "It's dead") << ". It has " << _hitPoints << " hit points"
 		<< std::endl;
 }
 
+//there is no mention on a limit of points????
 void	ClapTrap::beRepaired(unsigned int amount) {
-	if (_hitPoints >= 0 && _hitPoints + amount <= 10) {
+	if (!_energyPoints) {
+		std::cout << "ClapTrap " << _name << " is too tired to repair itself" << std::endl;
+	} else if (!_hitPoints) {
+		std::cout << "ClapTrap " << _name << " isn't well! It can't repair itself" << std::endl; 
+	} else {
 		_energyPoints--;
 		_hitPoints += amount;
 		std::cout << "ClapTrap " << _name  << " gets " << amount 
 			<< " amount of hit points back." << " It has " << _hitPoints << " hit points and "
 			<< _energyPoints << " energy points" << std::endl;
-	} else {
-		_hitPoints = 10;
-		std::cout << "Cannot add hit points, ClapTrap " << _name 
-			<< " already has " << _hitPoints << std::endl;
 	}
 
 }
