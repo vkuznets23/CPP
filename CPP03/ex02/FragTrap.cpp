@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:05:40 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 11:42:41 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:03:01 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,24 @@ FragTrap &FragTrap::operator = (const FragTrap &origin) {
 
 FragTrap::~FragTrap() {std::cout << "FragTrap destructor called" << std::endl; }
 
-void	FragTrap::highFiversGuys() {
+//i need to costomize its behavuor
+void	FragTrap::attack(const std::string &target) {
+	if (!_hitPoints) {
+		std::cout << "FragTrap " << _name << " cannot attack because it has no hit points left"
+			<< std::endl;
+		return ;
+	}
+	if (!_energyPoints) {
+		std::cout << "FragTrap " << _name << " doesn't have enough energy points! only "
+			<< _energyPoints << std::endl;
+		return ;
+	}
+	_energyPoints--;
+	std::cout << "FragTrap " << _name << " attacks " << target << ", causing "
+		<< _attackDamage << " points of damage!" << " Remaining energy: "
+		<< _energyPoints << std::endl;
+}
+
+void	FragTrap::highFivesGuys() {
 	std::cout << "FragTrap " << _name << " requests a high five! Raise your hand!" << std::endl;
 }
