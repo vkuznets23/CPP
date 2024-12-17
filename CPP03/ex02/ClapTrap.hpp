@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:02:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/16 11:33:54 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:22:48 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ public:
 	ClapTrap(const std::string &name);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator = (const ClapTrap &other);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	void	attack(const std::string &target);
 	void	takeDamage(unsigned int amount);

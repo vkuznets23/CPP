@@ -6,13 +6,13 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:05:40 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 10:03:01 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:25:45 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap() : ClapTrap() {
+FragTrap::FragTrap() : ClapTrap("Default") {
 	_hitPoints = 100;
 	_energyPoints = 100;
 	_attackDamage = 30;

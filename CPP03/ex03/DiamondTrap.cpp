@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 11:09:30 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 11:38:48 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:28:38 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ DiamondTrap::DiamondTrap(const std::string &name)
 	: ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name), _name(name) {
 	std::cout << "Parameterized DiamondTrap constructor called" << std::endl;
 	_hitPoints = 100;
-	_hitPoints = 100;
+	_energyPoints = 100;
 	_attackDamage = 30;
 }
 
 DiamondTrap::DiamondTrap(const DiamondTrap &origin) 
-	: ClapTrap(origin), ScavTrap(origin), FragTrap(origin) {
+	: ClapTrap(origin), ScavTrap(origin), FragTrap(origin), _name(origin._name) {
 	std::cout << "Copy DiamondTrap constructor called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:37:47 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/16 11:37:50 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:19:22 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(void) {
 	std::cout << "\n------- Calling default ScavTrap constructors -------" << std::endl;
 	ScavTrap	vannila;
-	ScavTrap	chocolate;
 	
 	std::cout << "\n------- Calling constructors with names -------" << std::endl;
 	ScavTrap	uno("Bob");
@@ -31,13 +30,12 @@ int	main(void) {
 	angryRoboot.attack("Bob");
 	uno.takeDamage(10);
 	uno.beRepaired(10);
-	uno.beRepaired(10);
 
-	std::cout << "\n------- While loop for copy constructor Gena (he has 49 energy points) -------" << std::endl;
+	std::cout << "\n------- While loop for copy constructor Gena -------" << std::endl;
 	for (int i = 0; i < 50; i++)
 		angryRoboot.attack("Bob");
-
 	std::cout << std::endl;
+
 	uno.takeDamage(1);
 	angryRoboot.beRepaired(1);
 

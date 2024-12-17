@@ -6,13 +6,13 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 16:17:46 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 09:54:42 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:26:14 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap() {
+ScavTrap::ScavTrap() : ClapTrap("Default") {
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;

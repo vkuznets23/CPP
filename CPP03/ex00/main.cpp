@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:37:47 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/16 11:28:06 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:13:23 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	main(void) {
 	std::cout << "\n------- While loop for copy constructor Gena (he has 9 energy points) -------" << std::endl;
 	for (int i = 0; i < 10; i++)
 		angryRoboot.attack("Bob");
-
 	std::cout << std::endl;
+
 	uno.takeDamage(1);
 	angryRoboot.beRepaired(1);
 

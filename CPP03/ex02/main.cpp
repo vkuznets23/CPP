@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:16:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 10:05:27 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:25:13 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(void) {
 	angryRoboot.beRepaired(1);
 
 	std::cout << std::endl << "High five function" << std::endl;
-	angryRoboot.highFiversGuys();
+	angryRoboot.highFivesGuys();
 	std::cout << std::endl;
 	
 	return 0;
