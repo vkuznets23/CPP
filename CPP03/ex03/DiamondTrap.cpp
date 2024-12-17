@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 11:09:30 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 10:28:38 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:33:52 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &origin) {
 }
 
 DiamondTrap::~DiamondTrap() {std::cout << "DiamondTrap destructor called" << std::endl; }
+
+void DiamondTrap::attack(const std::string &target)
+{
+	ScavTrap::attack(target);
+}
 
 void	DiamondTrap::whoAmI() {
 	std::cout << "It's name: " << _name << std::endl

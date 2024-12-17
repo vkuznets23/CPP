@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/13 10:48:33 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 11:33:54 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/17 10:34:09 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ public:
 	~DiamondTrap();
 
 	void	whoAmI();
+	void	attack(const std::string &target);
 };
