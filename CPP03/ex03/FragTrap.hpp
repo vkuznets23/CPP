@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/11 14:01:44 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 10:03:08 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:45:50 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap {
+class	FragTrap : virtual public ClapTrap {
 public:
 	FragTrap();
 	FragTrap(const std::string &name);

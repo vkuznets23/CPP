@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:34:33 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 11:02:07 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:45:40 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	~ScavTrap();
 
 	void	guardGate();
-	void attack(const std::string &target);
+	void	attack(const std::string &target);
 };
 
 #endif

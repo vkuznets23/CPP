@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:02:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 10:22:34 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:41:28 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CLAPTRAP_HPP
 
 # include <iostream>
+# include <limits>
 
 class	ClapTrap {
 protected:

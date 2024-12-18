@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:02:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/16 11:33:54 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:44:34 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CLAPTRAP_HPP
 
 # include <iostream>
+# include <limits>
 
 class	ClapTrap {
 protected:
@@ -26,7 +27,7 @@ public:
 	ClapTrap(const std::string &name);
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator = (const ClapTrap &other);
-	~ClapTrap();
+	virtual ~ClapTrap();
 
 	void	attack(const std::string &target);
 	void	takeDamage(unsigned int amount);
