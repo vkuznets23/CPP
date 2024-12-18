@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 13:08:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/17 09:49:34 by vkuznets         ###   ########.fr       */
+/*   Updated: 2024/12/18 10:20:46 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,13 @@ void	ClapTrap::beRepaired(unsigned int amount) {
 		std::cout << "ClapTrap " << _name << " isn't well! It can't repair itself" << std::endl; 
 	} else {
 		_energyPoints--;
-		_hitPoints += amount;
+		//overflow check
+		if (_hitPoints > std::numeric_limits<unsigned int>::max() - amount) {
+			_hitPoints = std::numeric_limits<unsigned int>::max();
+			std::cout << "Clap Trap " << _name << " hit points are maxed out!" << std::endl;
+		} else {
+			_hitPoints += amount;
+		}
 		std::cout << "ClapTrap " << _name  << " gets " << amount 
 			<< " amount of hit points back." << " It has " << _hitPoints << " hit points and "
 			<< _energyPoints << " energy points" << std::endl;
