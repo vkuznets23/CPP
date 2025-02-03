@@ -5,29 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 11:30:02 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/12 14:21:16 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/21 10:43:28 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/23 10:08:57 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_HPP
-#define WRONGANIMAL_HPP
-
-#include <iostream>
+# pragma once 
+# include <iostream>
 
 class	WrongAnimal {
-protected:
-	std::string	_type;
+	protected:
+		std::string	_type;
+	public:
+		WrongAnimal();
+		WrongAnimal(const std::string &type);
+		WrongAnimal(const WrongAnimal &other);
+		WrongAnimal &operator= (const WrongAnimal &other);
+		virtual ~WrongAnimal();
 
-public:
-	WrongAnimal();
-	WrongAnimal(std::string type);
-	WrongAnimal(const WrongAnimal &origin);
-	WrongAnimal &operator=(const WrongAnimal &origin);
-	virtual ~WrongAnimal();
-
-	virtual void	makeSound() const;
-	std::string	getType() const;
+		std::string	getType() const;
+		void	makeSound() const;
 };
-
-#endif

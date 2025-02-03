@@ -5,26 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 15:16:34 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/12 15:20:56 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/22 10:07:50 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/22 11:26:02 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BRAIN_HPP
-#define BRAIN_HPP
-
+#pragma once
 #include <iostream>
 
 class	Brain {
-private:
-	std::string	_ideas[100];
+	private:
+		std::string	_ideas[100];
+	public:
+		Brain();
+		Brain(const std::string ideas[100]);
+		Brain(const Brain &other);
+		Brain &operator=(const Brain &other);
+		~Brain();
 
-public:
-	Brain();
-	Brain(std::string ideas[100]);
-	Brain(const Brain &origin);
-	Brain &operator=(const Brain &origin);
-	~Brain();
+		void		setIdea(int index, const std::string &idea);
+		std::string	getIdea(int index) const;
 };
-
-#endif

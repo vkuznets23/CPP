@@ -5,25 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 15:06:51 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/11 16:37:38 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/21 10:11:04 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/21 10:33:43 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_HPP
-#define DOG_HPP
-
+#pragma once
 # include "Animal.hpp"
 
 class	Dog : public Animal {
 public:
 	Dog();
-	Dog(const Dog &origin);
-	Dog &operator=(const Dog &origin);
+	Dog(const Dog &other);
+	Dog &operator=(const Dog &other);
 	~Dog();
 
-	//override the makeSound function
+	//override the makeSoud function from Animal class
 	void	makeSound() const override;
+	
 };
-
-#endif

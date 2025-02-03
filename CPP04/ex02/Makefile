@@ -6,22 +6,26 @@
 #    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/12 11:11:36 by vkuznets          #+#    #+#              #
-#    Updated: 2024/12/12 15:48:37 by vkuznets         ###   ########.fr        #
+#    Updated: 2025/01/23 10:35:04 by vkuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Polymorphism
+NAME =  Abstract
 CC = c++
 CFLAGS = -Werror -Wall -Wextra
 
 SRCS = Animal.cpp \
 	Dog.cpp \
 	Cat.cpp \
+	WrongAnimal.cpp \
+	WrongCat.cpp \
 	Brain.cpp \
 	main.cpp
 
 HDRS = Animal.hpp \
 	Dog.hpp \
+	WrongAnimal.hpp \
+	WrongCat.hpp \
 	Brain.hpp \
 	Cat.hpp
 

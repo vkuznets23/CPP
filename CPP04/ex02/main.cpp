@@ -5,33 +5,42 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 16:30:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/13 09:55:52 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/21 10:30:30 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/23 10:39:07 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
 #include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongCat.hpp"
 
 int main()
 {
-	//const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	// Uncommenting the following line should cause a compilation error because Animal is abstract
+	// Animal myAnimal; // Error: cannot declare variable of abstract type 'Animal'
 
-	int	numAnimals = 100;
-	const 	Animal* animals[numAnimals];
+	std::cout << "-----Creating a Dog-----" << std::endl;
+	Dog dog;
+	dog.makeSound();
 
+	std::cout << "-----Creating a Cat-----" << std::endl;
+	Cat cat;
+	cat.makeSound();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	//meta->makeSound();
+	std::cout << "-----Pointer to Abstract Class-----" << std::endl;
+	Animal* animalPtr = new Dog(); // Allowed because Dog is not abstract
+	animalPtr->makeSound();
+	delete animalPtr;
 
-	//delete meta;
-	delete j;
-	delete i;
+	std::cout << "-----Deep Copy Test-----" << std::endl;
+	Dog originalDog;
+	originalDog.setIdea(0, "Protect the house");
+	Dog copiedDog = originalDog; // Copy constructor
+
+	// Modify the copy and verify the original is unaffected
+	copiedDog.setIdea(0, "Play in the yard");
+	std::cout << "Original Dog Idea[0]: " << originalDog.getIdea(0) << std::endl;
+	std::cout << "Copied Dog Idea[0]: " << copiedDog.getIdea(0) << std::endl;
 
 	return 0;
 }

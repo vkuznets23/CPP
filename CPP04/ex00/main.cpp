@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 16:30:41 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/12 15:01:06 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/21 10:30:30 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/23 10:18:34 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
 #include "Cat.hpp"
+#include "Dog.hpp"
 #include "WrongCat.hpp"
 
 int main()
@@ -19,29 +19,31 @@ int main()
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-	std::cout << "type: " << j->getType() << " " << std::endl;
-	std::cout << "type: " << i->getType() << " " << std::endl;
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
 
-	std::cout << "------WrongAnimal thingy------" << std::endl;
-	const WrongAnimal* defaultPet = new WrongAnimal();
-	const WrongAnimal* defaultPet2 = new WrongAnimal("pet");
-	const WrongAnimal* wrongCat = new WrongCat();
-	std::cout << "type: " << wrongCat->getType() << std::endl;
-	std::cout << "type: " << defaultPet->getType() << std::endl;
-	std::cout << "type: " << defaultPet2->getType() << std::endl;
-	wrongCat->makeSound();
+	std::cout << "-----WrongCat tests-----" << std::endl;
+	const WrongAnimal *defaultPet = new WrongAnimal();
+	const WrongAnimal *parameterizedPet = new WrongAnimal("pet");
+	const WrongAnimal *wrongCat = new WrongCat();
+
+	std::cout << "type: " << defaultPet->getType()  << std::endl;
+	std::cout << "type: " << parameterizedPet->getType()  << std::endl;
+	std::cout << "type: " << wrongCat->getType()  << std::endl;
+
 	defaultPet->makeSound();
-	defaultPet2->makeSound();
+	parameterizedPet->makeSound();
+	wrongCat->makeSound();
 
 	delete meta;
 	delete j;
 	delete i;
 
 	delete defaultPet;
-	delete defaultPet2;
+	delete parameterizedPet;
 	delete wrongCat;
 
 	return 0;

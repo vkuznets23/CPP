@@ -5,28 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/12 11:17:31 by vkuznets          #+#    #+#             */
-/*   Updated: 2024/12/12 11:25:34 by vkuznets         ###   ########.fr       */
+/*   Created: 2025/01/21 10:24:09 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/01/22 10:53:26 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("cat") {std::cout << "Default Cat constructor" << std::endl; }
+Cat::Cat() : Animal("cat") {std::cout << "Default Cat constructor called" << std::endl; }
 
-Cat::Cat(const Cat &origin) : Animal(origin) {std::cout << "Copy Cat constructor called" << std::endl; }
+Cat::Cat(const Cat &other) : Animal(other) {std::cout << "Copy Cat constructor called" << std::endl; }
 
-Cat &Cat::operator=(const Cat &origin) {
-	if (this == &origin) {
+Cat &Cat::operator=(const Cat &other) {
+	if (this == &other)
 		return *this;
-	}
-	(Animal::operator=(origin));
+	Animal::operator = (other);
 	return *this;
 }
 
-Cat::~Cat() {std::cout << "Cat destructor" << std::endl; }
+Cat::~Cat() {std::cout << "Cat destructor called" << std::endl; }
 
-void	Cat::makeSound() const {
-	std::cout << "Meow! Meow!" << std::endl;
-}
-
+void	Cat::makeSound() const {std::cout << "Meow! Meow!" << std::endl; }
