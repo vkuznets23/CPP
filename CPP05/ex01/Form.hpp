@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 13:42:53 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/03 15:53:01 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/04 07:49:20 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ std::ostream &operator<<(std::ostream &out, const Form &f);
 
 class	Form::GradeTooHighException: public std::exception {
 	public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 };
 
 class	Form::GradeTooLowException: public std::exception {
 	public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 };

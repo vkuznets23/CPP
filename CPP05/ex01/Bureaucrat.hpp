@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 11:24:48 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/03 15:52:37 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/04 07:50:23 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 class	Bureaucrat::GradeTooHighException: public std::exception {
 	public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 };
 
 class	Bureaucrat::GradeTooLowException: public std::exception {
 	public:
-		const char* what() const noexcept override;
+		const char* what() const throw();
 };
