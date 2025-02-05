@@ -44,10 +44,10 @@ std::ostream &operator<<(std::ostream &out, const Form &f);
 
 class	Form::GradeTooHighException: public std::exception {
 	public:
-		const char* what() const throw();
+		const char* what() const throw() override;
 };
 
 class	Form::GradeTooLowException: public std::exception {
 	public:
-		const char* what() const throw();
+		const char* what() const throw() override;
 };

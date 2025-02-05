@@ -20,5 +20,5 @@ class ShrubberyCreationForm : public AForm {
 class ShrubberyCreationForm::FileOpeningException: public std::exception
 {
 	public:
-    		const char *what() const throw();
+    		const char *what() const throw() override;
 };

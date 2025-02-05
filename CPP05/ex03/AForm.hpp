@@ -46,16 +46,17 @@ std::ostream &operator<<(std::ostream &out, const AForm &f);
 
 class	AForm::GradeTooHighException: public std::exception {
 	public:
-		const char* what() const throw();
+		//overriding a virtual function from the base class (std::exception)
+		const char* what() const throw() override;
 };
 
 class	AForm::GradeTooLowException: public std::exception {
 	public:
-		const char* what() const throw();
+		const char* what() const throw() override;
 };
 
 class	AForm::NotSignedException : public std::exception
 {
 	public:
-    		const char *what() const throw();
+    		const char *what() const throw() override;
 };

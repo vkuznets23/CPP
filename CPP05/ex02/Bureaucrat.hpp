@@ -51,10 +51,10 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat);
 
 class	Bureaucrat::GradeTooHighException: public std::exception {
 	public:
-		const char* what() const throw();
+		const char* what() const throw() override;
 };
 
 class	Bureaucrat::GradeTooLowException: public std::exception {
 	public:
-		const char* what() const throw();
+		const char* what() const throw() override;
 };

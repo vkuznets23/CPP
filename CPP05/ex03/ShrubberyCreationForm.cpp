@@ -49,6 +49,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	if (executor.getGrade() > this->getExecGrade())
 		throw AForm::GradeTooLowException();
 	
+    //Open a file to write the shrubbery (ASCII tree)
 	std::ofstream outFile((_target + "_shrubbery").c_str());
 	if (!outFile.is_open())
 		throw ShrubberyCreationForm::FileOpeningException();

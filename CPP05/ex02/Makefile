@@ -39,10 +39,10 @@ $(NAME): $(OBJS) $(HDRS)
 
 clean:
 	rm -f $(OBJS)
-	rm Home_shrubbery
 
 fclean: clean
 	rm -rf $(NAME)
+	rm *_shrubbery
 
 re: fclean all
 
