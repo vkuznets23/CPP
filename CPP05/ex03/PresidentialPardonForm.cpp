@@ -15,11 +15,7 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &ori
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &origin) {
     std::cout << "PresidentialPardonForm assignment operator called" << std::endl;
     if (this != &origin) {
-        // Call base class assignment operator
-        AForm::operator=(origin);r
-
-        // _target is const, so we cannot assign it, so no action is needed here
-        // _target will already be initialized in the constructor
+        AForm::operator=(origin);
     }
     return *this;
 }

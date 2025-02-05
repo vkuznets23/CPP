@@ -24,14 +24,14 @@ Form::Form(const std::string &name, int signGrade, int execGrade): _name(name), 
 	std::cout << "Copy Form constructor called" << std::endl;
 }
 
-Form &Form::operator = (const Form &original)
-{
-	if (this != &original)
-	{
-		this->~Form();
-		new(this) Form(original);
-	}
-	return (*this);
+Form &Form::operator=(const Form &origin) {
+    if (this != &origin) {
+        _signed = origin._signed;
+        // _name is a const string, so we can't assign it. No need to handle it here.
+        // _signGrade and _execGrade are const, so they must be initialized in the constructor
+        // and cannot be changed after object creation, so we don't assign them here.
+    }
+    return *this;
 }
 
 Form::~Form() {std::cout << "Default Form destructor called" << std::endl; }
