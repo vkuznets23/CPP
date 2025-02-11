@@ -6,17 +6,17 @@
 #include <iomanip>
 #include <limits>
 
-// should be abstract sxo we cannot instaniate it
 class ScalarConverter
 {
 public:
   static void convert(const std::string &str);
 
 private:
-  ScalarConverter() = default;
-  ScalarConverter(const ScalarConverter &origin) = default;
-  ScalarConverter &operator=(const ScalarConverter &origin) = default;
-  ~ScalarConverter() = default;
+  ScalarConverter() = delete;
+  ScalarConverter(const ScalarConverter &origin) = delete;
+  ScalarConverter &operator=(const ScalarConverter &origin) = delete;
+  ~ScalarConverter() = delete;
+
   static void convertFromInt(const std::string &str);
   static void convertFromFloat(const std::string &str);
   static void convertFromDouble(const std::string &str);

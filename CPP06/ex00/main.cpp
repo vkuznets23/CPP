@@ -14,65 +14,118 @@
 //     return 0;
 // }
 
-#include <iostream>
-#include <string>
-#include "ScalarConverter.hpp"
+void checkint()
+{
+    std::cout << "INTEGERS" << std::endl;
+    ScalarConverter::convert("42"); // Integer within valid range
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-42"); // Negative integer
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("0"); // Zero
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("2147483647"); // Maximum integer
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("2147483648"); // Overflow
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-2147483648"); // Minimum integer
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-2147483649"); // Overflow
+}
+
+void checkchar()
+{
+    std::cout << "CHAR" << std::endl;
+    ScalarConverter::convert("a"); // Single character
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("b"); // Another character
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("z"); // Edge case with a valid character
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("\n"); // Non-displayable character (newline)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert(" "); // Space (valid but whitespace)
+}
+
+void checkfloat()
+{
+    std::cout << "FLOAT" << std::endl;
+    ScalarConverter::convert("42.0f"); // Simple float
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-42.0f"); // Negative float
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("0.0f"); // Zero float
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("3.14f"); // Pi approximation
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("1.5e2f"); // Scientific notation
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("inff"); // Special case: infinity (float)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("+inff"); // Special case: positive infinity (float)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-inff"); // Special case: negative infinity (float)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("nanf"); // Special case: NaN (float)
+}
+
+void checkdouble()
+{
+    std::cout << "DOUBLE" << std::endl;
+    ScalarConverter::convert("42.0"); // Simple double
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-42.0"); // Negative double
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("0.0"); // Zero double
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("3.14159"); // Pi approximation as double
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("1.5e2"); // Scientific notation (double)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("inf"); // Special case: infinity (double)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("+inf"); // Special case: positive infinity (double)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-inf"); // Special case: negative infinity (double)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("nan"); // Special case: NaN (double)
+}
+
+void checkInvalidInputs()
+{
+    std::cout << "INVALID INPUTS" << std::endl;
+    ScalarConverter::convert("abc"); // Invalid string
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert(" "); // Invalid space input
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("NaN"); // Invalid string input (case-sensitive)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("infinity"); // Invalid, should not be recognized as float/double
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("123abc"); // Invalid integer with letters
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("f"); // Invalid char input
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("$$$"); // Invalid non-numeric string
+}
+
+void checkCharLimits()
+{
+    std::cout << "CHAR LIMIT" << std::endl;
+    ScalarConverter::convert("127"); // Upper limit for char (ASCII)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("128"); // Just over the char limit (should be impossible)
+    std::cout << "__________________" << std::endl;
+    ScalarConverter::convert("-1"); // Char lower bound (invalid)
+}
 
 int main()
 {
-    // Test Case 1: Single Character
-    std::cout << "[Test 1] Character input: 'a'\n";
-    ScalarConverter::convert("a"); // Should print 'char: 'a''
-
-    // Test Case 2: Integer Input
-    std::cout << "[Test 2] Integer input: '42'\n";
-    ScalarConverter::convert("42"); // Should print 'int: 42', 'char: *', 'float: 42.0f', 'double: 42.0'
-
-    // Test Case 3: Floating Point Input (with 'f' suffix)
-    std::cout << "[Test 3] Floating point input: '4.2f'\n";
-    ScalarConverter::convert("4.2f"); // Should print 'int: 4', 'char: Non displayable', 'float: 4.2f', 'double: 4.2'
-
-    // Test Case 4: Double Input
-    std::cout << "[Test 4] Double input: '42.5'\n";
-    ScalarConverter::convert("42.5"); // Should print 'int: 42', 'char: *', 'float: 42.5f', 'double: 42.5'
-
-    // Test Case 5: Non-printable Character (e.g., ASCII 0)
-    std::cout << "[Test 5] Non-displayable character input: '\x00'\n";
-    ScalarConverter::convert("\x00"); // Should print 'char: impossible', 'int: 0', 'float: 0.0f', 'double: 0.0'
-
-    // Test Case 6: Special float values 'inf' and '-inf'
-    std::cout << "[Test 6] Special float value: 'inff'\n";
-    ScalarConverter::convert("inff"); // Should print 'float: inff', 'double: inf'
-
-    std::cout << "[Test 7] Special float value: '-inff'\n";
-    ScalarConverter::convert("-inff"); // Should print 'float: -inff', 'double: -inf'
-
-    std::cout << "[Test 8] Special float value: '+inff'\n";
-    ScalarConverter::convert("+inff"); // Should print 'float: +inff', 'double: +inf'
-
-    // Test Case 7: NaN (Not a Number)
-    std::cout << "[Test 9] Special NaN value: 'nan'\n";
-    ScalarConverter::convert("nan"); // Should print 'float: nanf', 'double: nan'
-
-    // Test Case 8: Invalid input, which is not convertible
-    std::cout << "[Test 10] Invalid input: 'Hello'\n";
-    ScalarConverter::convert("Hello"); // Should print 'char: impossible', 'int: impossible', 'float: impossible', 'double: impossible'
-
-    // Test Case 9: Edge case with a very large number
-    std::cout << "[Test 11] Edge case with large float: '1e308'\n";
-    ScalarConverter::convert("1e308"); // Should print 'char: impossible', 'int: impossible', 'float: impossible', 'double: 1e+308'
-
-    // Test Case 10: Valid float with large exponent (scientific notation)
-    std::cout << "[Test 12] Valid float with large exponent: '1.234e5'\n";
-    ScalarConverter::convert("1.234e5"); // Should print 'int: 123400', 'char: Non displayable', 'float: 123400.0f', 'double: 123400.0'
-
-    // Test Case 11: Large negative number
-    std::cout << "[Test 13] Negative number: '-1234567'\n";
-    ScalarConverter::convert("-1234567"); // Should print 'int: -1234567', 'char: impossible', 'float: -1234567.0f', 'double: -1234567.0'
-
-    // Test Case 12: Edge case: very small float that is too small to represent
-    std::cout << "[Test 14] Very small float: '1.0e-40f'\n";
-    ScalarConverter::convert("1.0e-40f"); // Should print 'int: 0', 'char: Non displayable', 'float: 1.0e-40f', 'double: 1.0e-40'
-
-    return 0;
+    // Float is not so precise with big numbers do it get 2147483648 (not 7)
+    // 3.1 or 3.9 => 3 (cos it just removes fractional part)
+    checkint();
+    checkchar();
+    checkfloat();
+    checkdouble();
+    checkInvalidInputs();
+    checkCharLimits();
 }
