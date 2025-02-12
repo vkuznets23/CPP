@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/12 09:44:11 by vkuznets          #+#    #+#             */
+/*   Updated: 2025/02/12 13:20:14 by vkuznets         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ScalarConverter.hpp"
 
 // int main(int argc, char **argv)
@@ -29,7 +41,7 @@ void checkint()
     std::cout << "__________________" << std::endl;
     ScalarConverter::convert("-2147483648"); // Minimum integer
     std::cout << "__________________" << std::endl;
-    ScalarConverter::convert("-2147483649"); // Overflow
+    ScalarConverter::convert("-2147483650"); // Overflow !!!
 }
 
 void checkchar()
