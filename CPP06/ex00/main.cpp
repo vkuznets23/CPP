@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 09:44:11 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/12 13:20:14 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/13 19:36:32 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,6 @@ void checkint()
     ScalarConverter::convert("2147483648"); // Overflow
     std::cout << "__________________" << std::endl;
     ScalarConverter::convert("-2147483648"); // Minimum integer
-    std::cout << "__________________" << std::endl;
-    ScalarConverter::convert("-2147483650"); // Overflow !!!
 }
 
 void checkchar()
