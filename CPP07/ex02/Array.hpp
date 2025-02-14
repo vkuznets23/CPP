@@ -3,27 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 12:50:29 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/13 19:41:40 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:03:44 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-template <class T>
-class Array
+#pragma once
+
+template <class T> class Array
 {
-private:
-  unsigned int _n;
-  T *_array;
+  private:
+    unsigned int _n;
+    T *_array;
 
-public:
-  Array();
-  Array(unsigned int &n);
-  Array(const Array<T> &o);
-  Array<T> &operator=(const Array<T> &o);
-  ~Array();
+  public:
+    Array();
+    Array(unsigned int n);
+    Array(const Array<T> &o);
+    Array<T> &operator=(const Array<T> &o);
+    ~Array();
 
-  unsigned int size() const;
-  T &operator[](unsigned int index);
+    // getter
+    unsigned int n();
+
+    // This function overloads the subscript operator ([]), allowing direct access to elements in the array.
+    T &operator[](unsigned int index);
 };
+
+#include "Array.tpp"
