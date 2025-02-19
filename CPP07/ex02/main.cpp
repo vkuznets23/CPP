@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 09:58:49 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/14 10:10:54 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:32:20 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ int main(void)
         class_array[i] = rand();
 
     std::cout << "Cleaning up dynamically allocated memory...\n";
+
     // Free dynamically allocated memory
     delete[] normal_array;
 
