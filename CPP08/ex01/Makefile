@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+         #
+#    By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/14 10:04:09 by vkuznets          #+#    #+#              #
-#    Updated: 2025/02/19 16:32:27 by vkuznets         ###   ########.fr        #
+#    Updated: 2025/02/26 14:57:15 by viktoria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = span
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++11
+CFLAGS = -Wall -Wextra -Werror -std=c++17
 
 
 SRCS = main.cpp \
