@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/26 16:00:30 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/02/27 17:48:47 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,18 @@ int main()
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
+
+    try
+    {
+        std::cout << "\n----- Empty Span -----" << std::endl;
+        Span emptySpan(5);
+        std::cout << "shortest: " << emptySpan.shortestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
     try
     {
         std::cout << "\n----- 10K nums -----" << std::endl;
@@ -72,7 +84,7 @@ int main()
             sp3.addNumber(i);
         }
         std::cout << "shortest: " << sp3.shortestSpan() << std::endl;
-        std::cout << "shortest: " << sp3.longestSpan() << std::endl;
+        std::cout << "longest: " << sp3.longestSpan() << std::endl;
     }
     catch (const std::runtime_error &e)
     {
