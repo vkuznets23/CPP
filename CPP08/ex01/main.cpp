@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/28 10:28:16 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/28 12:37:51 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,56 @@ int main()
         sp1.addNumber(11);
         std::cout << "shortest: " << sp1.shortestSpan() << std::endl;
         std::cout << "longest: " << sp1.longestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    try
+    {
+
+        std::cout << "\n----- Longer span than numbers -----" << std::endl;
+        Span sp = Span(10);
+        sp.addNumber(6);
+        sp.addNumber(3);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(11);
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n----- Large numbers -----" << std::endl;
+        Span sp = Span(5);
+        sp.addNumber(6);
+        sp.addNumber(std::numeric_limits<int>::max());
+        sp.addNumber(17);
+        sp.addNumber(9);
+        sp.addNumber(std::numeric_limits<int>::min());
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n----- First element 0 -----" << std::endl;
+        Span sp = Span(5);
+        sp.addNumber(0);
+        sp.addNumber(17);
+        sp.addNumber(9);
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
     catch (const std::runtime_error &e)
     {
