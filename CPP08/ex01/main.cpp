@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/27 17:48:47 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/02/28 10:28:16 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,8 @@ int main()
     spanObject.addNumber(1);
     spanObject.addNumber(2);
     spanObject.addNumber(4);
+
+    std::cout << "\n----- Normal -----" << std::endl;
     std::cout << "\nBefore:" << std::endl;
     spanObject.print();
 
@@ -111,6 +113,7 @@ int main()
     std::cout << "\nAfter:" << std::endl;
     spanObject.print();
 
+    std::cout << "\n----- Start and end are the same -----" << std::endl;
     std::cout << "\nBefore:" << std::endl;
     spanObject.print();
     try
@@ -124,6 +127,7 @@ int main()
     std::cout << "After:" << std::endl;
     spanObject.print();
 
+    std::cout << "\n----- End is before start -----" << std::endl;
     std::cout << "\nBefore:" << std::endl;
     spanObject.print();
     try

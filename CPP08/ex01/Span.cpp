@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:18:58 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/27 17:46:47 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/02/28 10:24:02 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Span::Span(unsigned int N) : _n(N) {};
 
 Span::Span(const Span &o) : _n(o._n), _vec(o._vec) {};
 
-//????? add vector thingy
 Span &Span::operator=(const Span &o)
 {
     if (this != &o)
