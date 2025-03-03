@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/03/03 10:17:52 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/03/03 11:48:34 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
         std::cout << "shortest: " << sp.shortestSpan() << std::endl;
         std::cout << "longest: " << sp.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -45,7 +45,7 @@ int main()
         std::cout << "shortest: " << sp1.shortestSpan() << std::endl;
         std::cout << "longest: " << sp1.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -63,7 +63,7 @@ int main()
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -80,7 +80,7 @@ int main()
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -94,7 +94,7 @@ int main()
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -109,7 +109,7 @@ int main()
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -123,7 +123,7 @@ int main()
         std::cout << "shortest: " << sp2.shortestSpan() << std::endl;
         std::cout << "longest: " << sp2.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -134,7 +134,7 @@ int main()
         Span emptySpan(5);
         std::cout << "shortest: " << emptySpan.shortestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -150,16 +150,23 @@ int main()
         std::cout << "shortest: " << sp3.shortestSpan() << std::endl;
         std::cout << "longest: " << sp3.longestSpan() << std::endl;
     }
-    catch (const std::runtime_error &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
 
     std::cout << "\n----- Random iterators -----" << std::endl;
-    Span spanObject(100);
-    spanObject.addNumber(1);
-    spanObject.addNumber(2);
-    spanObject.addNumber(4);
+    Span spanObject(1);
+    try
+    {
+        spanObject.addNumber(1);
+        spanObject.addNumber(2);
+        spanObject.addNumber(4);
+    }
+    catch (const std::exception &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
 
     std::cout << "\n----- Normal -----" << std::endl;
     std::cout << "\nBefore:" << std::endl;
@@ -170,7 +177,7 @@ int main()
     {
         spanObject.randomIterators(numbers.begin(), numbers.end());
     }
-    catch (const std::invalid_argument &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -184,7 +191,7 @@ int main()
     {
         spanObject.randomIterators(numbers.end(), numbers.end());
     }
-    catch (const std::invalid_argument &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
@@ -198,7 +205,7 @@ int main()
     {
         spanObject.randomIterators(numbers.end(), numbers.begin());
     }
-    catch (const std::invalid_argument &e)
+    catch (const std::exception &e)
     {
         std::cout << "Error: " << e.what() << std::endl;
     }
