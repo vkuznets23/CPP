@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/28 12:37:51 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:17:52 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,20 @@ int main()
         sp.addNumber(std::numeric_limits<int>::max());
         sp.addNumber(17);
         sp.addNumber(9);
+        sp.addNumber(std::numeric_limits<int>::min());
+        std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
+        std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+    }
+    catch (const std::runtime_error &e)
+    {
+        std::cout << "Error: " << e.what() << std::endl;
+    }
+
+    try
+    {
+        std::cout << "\n----- Large numbers2 -----" << std::endl;
+        Span sp = Span(2);
+        sp.addNumber(std::numeric_limits<int>::max());
         sp.addNumber(std::numeric_limits<int>::min());
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:18:58 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/28 10:24:02 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:18:44 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ unsigned int Span::shortestSpan()
     unsigned int minDiff = std::numeric_limits<unsigned int>::max(); // start from the min possible diff
     for (size_t i = 1; i < _vec.size(); ++i)
     {
-        unsigned int diff = std::abs(_vec[i] - _vec[i - 1]);
+        unsigned int diff = static_cast<unsigned int>(_vec[i]) - static_cast<unsigned int>(_vec[i - 1]);
         if (diff < minDiff)
             minDiff = diff;
     }
