@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:31:37 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/03/03 11:48:34 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:21:56 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main()
     {
 
         std::cout << "\n----- Another simple test -----" << std::endl;
-        Span sp1 = Span(8);
+        Span sp1 = Span(-1);
         sp1.addNumber(1);
         sp1.addNumber(2);
         sp1.addNumber(4);
@@ -156,7 +156,7 @@ int main()
     }
 
     std::cout << "\n----- Random iterators -----" << std::endl;
-    Span spanObject(1);
+    Span spanObject(10);
     try
     {
         spanObject.addNumber(1);
