@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 16:18:58 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/27 17:46:47 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/04 10:21:34 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ Span::Span(unsigned int N) : _n(N) {};
 
 Span::Span(const Span &o) : _n(o._n), _vec(o._vec) {};
 
-//????? add vector thingy
 Span &Span::operator=(const Span &o)
 {
     if (this != &o)
@@ -50,7 +49,7 @@ unsigned int Span::shortestSpan()
     unsigned int minDiff = std::numeric_limits<unsigned int>::max(); // start from the min possible diff
     for (size_t i = 1; i < _vec.size(); ++i)
     {
-        unsigned int diff = std::abs(_vec[i] - _vec[i - 1]);
+        unsigned int diff = static_cast<unsigned int>(_vec[i]) - static_cast<unsigned int>(_vec[i - 1]);
         if (diff < minDiff)
             minDiff = diff;
     }

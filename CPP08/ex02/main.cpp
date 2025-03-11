@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/27 17:33:52 by viktoria          #+#    #+#             */
-/*   Updated: 2025/02/27 17:44:12 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/03 10:29:02 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <limits>
 #include <list>
 
 int main()
@@ -64,6 +65,22 @@ int main()
     }
 
     std::list<int> s1(mstack1); // Copy constructor check
+
+    std::cout << "\n----- Empty Stack Test -----" << std::endl;
+    MutantStack<int> emptyStack;
+    std::cout << "Is stack empty? " << (emptyStack.empty() ? "Yes" : "No") << std::endl;
+
+    std::cout << "\n----- Large Number Test -----" << std::endl;
+    MutantStack<long long> largeStack;
+    largeStack.push(std::numeric_limits<long long>::max()); // 9223372036854775807
+    largeStack.push(std::numeric_limits<long long>::min()); // -9223372036854775808
+
+    std::cout << "Stack contents: ";
+    for (auto it = largeStack.begin(); it != largeStack.end(); ++it)
+    {
+        std::cout << *it << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }

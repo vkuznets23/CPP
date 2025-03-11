@@ -6,7 +6,7 @@
 /*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 15:43:21 by vkuznets          #+#    #+#             */
-/*   Updated: 2025/02/19 15:52:30 by vkuznets         ###   ########.fr       */
+/*   Updated: 2025/02/28 10:23:25 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main()
         std::cerr << e.what() << std::endl;
     }
 
-    std::cout << "Try if value doesnt exists" << std::endl;
+    std::cout << "\nTry if value doesnt exists" << std::endl;
     try
     {
         auto it = easyfind(vec, 100);
