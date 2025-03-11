@@ -6,10 +6,11 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:26:47 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 12:44:54 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/11 13:05:19 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include <iostream>
 #include <fstream>
 #include <string>
