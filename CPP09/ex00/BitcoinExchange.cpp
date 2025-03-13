@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:31:53 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 13:07:01 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:53:41 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,15 @@ const int BitcoinExchange::DEFAULT_SECOND = 0;
 
 BitcoinExchange::BitcoinExchange() {}
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &o) : _DB(o._DB) {}
-// BitcoinExchange::BitcoinExchange(const BitcoinExchange &o) {}
+BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &o)
+{
+    if (this != &o)
+    {
+        _DB = o._DB;
+    }
+    return *this;
+}
+
 BitcoinExchange::~BitcoinExchange() {}
 
 float BitcoinExchange::validateExchangeValue(std::string &str_value, bool isExchangeRate)

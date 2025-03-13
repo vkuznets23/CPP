@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:05:41 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 13:14:05 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:50:50 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ private:
 public:
     RPN();
     RPN(std::string expression);
-    RPN(const RPN &original);
+    RPN(const RPN &o);
     ~RPN();
 
-    RPN &operator=(const RPN &original);
+    RPN &operator=(const RPN &o);
 
     int calculateExpression();
 };

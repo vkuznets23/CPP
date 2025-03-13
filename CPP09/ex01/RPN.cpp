@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:06:23 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 13:14:01 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/13 11:50:54 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,15 @@
 RPN::RPN() {}
 RPN::RPN(std::string expression) : _expression(expression) {}
 RPN::RPN(const RPN &o) : _expression(o._expression), _stack(o._stack) {}
-// RPN &RPN::operator = (const RPN &original)
+RPN &RPN::operator=(const RPN &o)
+{
+    if (this != &o)
+    {
+        _expression = o._expression;
+        _stack = o._stack;
+    }
+    return *this;
+}
 RPN::~RPN() {}
 
 int RPN::calculateExpression()
