@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:08:02 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/17 15:19:44 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:34:58 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ std::vector<int> PmergeMe::extract_large_elements(const std::vector<std::pair<in
             large_elements.push_back(pair.first);
     }
 
-    std::cout << "Large elements: ";
-    for (int num : large_elements)
-    {
-        std::cout << num << " ";
-    }
-    std::cout << std::endl;
+    // std::cout << "Large elements: ";
+    // for (int num : large_elements)
+    // {
+    //     std::cout << num << " ";
+    // }
+    // std::cout << std::endl;
     return large_elements;
 }
 
@@ -114,29 +114,37 @@ void PmergeMe::insert_remaining_elements(std::vector<int> &bigNumbers, const std
     }
 }
 
-void PmergeMe::recursive_sort(std::vector<int> &bigNumbers, std::vector<int> &small_elements)
-{
-    if (bigNumbers.size() == 1)
-        return;
+// void PmergeMe::recursive_sort(std::vector<int> &bigNumbers, std::vector<int> &small_elements)
+// {
+//     if (bigNumbers.size() == 1)
+//         return;
 
-    std::vector<std::pair<int, int>> pairs = make_pairs(bigNumbers);
-    std::vector<int> newBigNumbers = extract_large_elements(pairs);
-    std::vector<int> smallNumbers = extract_small_elements(pairs);
+//     std::vector<std::pair<int, int>> pairs = make_pairs(bigNumbers);
+//     std::vector<int> newBigNumbers = extract_large_elements(pairs);
+//     std::vector<int> smallNumbers = extract_small_elements(pairs);
 
-    small_elements.insert(small_elements.end(), smallNumbers.begin(), smallNumbers.end());
+//     small_elements.insert(small_elements.end(), smallNumbers.begin(), smallNumbers.end());
 
-    recursive_sort(newBigNumbers, small_elements);
+//     recursive_sort(newBigNumbers, small_elements);
 
-    bigNumbers = newBigNumbers;
-}
+//     bigNumbers = newBigNumbers;
+// }
 
 void PmergeMe::sort(std::vector<int> &arr)
 {
+    if (arr.size() == 1)
+        return;
+
     std::vector<std::pair<int, int>> pairs = make_pairs(arr);
     std::vector<int> bigNumbers = extract_large_elements(pairs);
     std::vector<int> smallNumbers = extract_small_elements(pairs);
 
-    recursive_sort(bigNumbers, smallNumbers);
+    // recursive_sort(bigNumbers, smallNumbers);
+    sort(bigNumbers);
+    std::cout << "bignumber: ";
+    printContainer(bigNumbers);
+    std::cout << "smallnum: ";
+    printContainer(smallNumbers);
 
     insert_remaining_elements(bigNumbers, smallNumbers);
 
