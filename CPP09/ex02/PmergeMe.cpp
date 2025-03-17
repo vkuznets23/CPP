@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:08:02 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/17 14:34:13 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/17 15:19:44 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ std::vector<int> PmergeMe::extract_small_elements(const std::vector<std::pair<in
 
     for (const auto &pair : pairs)
     {
-        if (pair.second != -1) // ignore the fake element
+        if (pair.second != -1)
             small_elements.push_back(pair.second);
         if (pair.second == -1)
             small_elements.push_back(pair.first);
@@ -105,18 +105,12 @@ std::vector<int> PmergeMe::extract_small_elements(const std::vector<std::pair<in
     return small_elements;
 }
 
-void PmergeMe::insert_remaining_elements(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers, const std::vector<int> &excluded)
+void PmergeMe::insert_remaining_elements(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers)
 {
     for (int small : smallNumbers)
     {
         auto it = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), small);
         bigNumbers.insert(it, small);
-    }
-
-    for (int num : excluded)
-    {
-        auto it = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), num);
-        bigNumbers.insert(it, num);
     }
 }
 
@@ -141,11 +135,10 @@ void PmergeMe::sort(std::vector<int> &arr)
     std::vector<std::pair<int, int>> pairs = make_pairs(arr);
     std::vector<int> bigNumbers = extract_large_elements(pairs);
     std::vector<int> smallNumbers = extract_small_elements(pairs);
-    std::vector<int> excluded;
 
-    recursive_sort(bigNumbers, excluded);
+    recursive_sort(bigNumbers, smallNumbers);
 
-    insert_remaining_elements(bigNumbers, smallNumbers, excluded);
+    insert_remaining_elements(bigNumbers, smallNumbers);
 
     arr = bigNumbers;
 }
