@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:29:38 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/17 12:05:00 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:24:23 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,13 @@ public:
     void printVector();
     void printDeque();
 
-    static std::vector<std::pair<int, int>> make_pairs(std::vector<int> &arr);
+    std::vector<std::pair<int, int>> make_pairs(std::vector<int> &arr);
+    std::vector<int> extract_large_elements(const std::vector<std::pair<int, int>> &pairs);
+    std::vector<int> extract_small_elements(const std::vector<std::pair<int, int>> &pairs);
     void fill_vector(int argc, char **argv, std::vector<int> &v);
-    static std::vector<int> extract_large_elements(const std::vector<std::pair<int, int>> &pairs);
-    static std::vector<int> merge_sort(const std::vector<int> &arr);
-    static void insert_remaining_elements(std::vector<int> &sorted, const std::vector<int> &remaining);
+    void recursive_sort(std::vector<int> &bigNumbers, std::vector<int> &excluded);
+    void insert_remaining_elements(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers, const std::vector<int> &excluded);
+    void sort(std::vector<int> &arr);
     void updateVector(const std::vector<int> &sortedElements);
 
     template <class T>

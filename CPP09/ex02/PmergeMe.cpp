@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 11:08:02 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/17 12:07:59 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:34:13 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ std::vector<std::pair<int, int>> PmergeMe::make_pairs(std::vector<int> &arr)
     }
     if (arr.size() % 2 != 0)
         pairs.emplace_back(arr.back(), -1);
+
     return pairs;
 }
 
@@ -76,49 +77,77 @@ std::vector<int> PmergeMe::extract_large_elements(const std::vector<std::pair<in
     std::vector<int> large_elements;
     for (const auto &pair : pairs)
     {
-        if (pair.second != -1) // ignore the fake element
+        if (pair.second != -1)
             large_elements.push_back(pair.first);
     }
+
+    std::cout << "Large elements: ";
+    for (int num : large_elements)
+    {
+        std::cout << num << " ";
+    }
+    std::cout << std::endl;
     return large_elements;
 }
 
-std::vector<int> PmergeMe::merge_sort(const std::vector<int> &arr)
+std::vector<int> PmergeMe::extract_small_elements(const std::vector<std::pair<int, int>> &pairs)
 {
-    if (arr.size() <= 1)
-        return arr;
+    std::vector<int> small_elements;
 
-    size_t mid = arr.size() / 2;
-    std::vector<int> left(arr.begin(), arr.begin() + mid);
-    std::vector<int> right(arr.begin() + mid, arr.end());
-
-    left = merge_sort(left);
-    right = merge_sort(right);
-
-    std::vector<int> result;
-    size_t i = 0, j = 0;
-    while (i < left.size() && j < right.size())
+    for (const auto &pair : pairs)
     {
-        if (left[i] < right[j])
-            result.push_back(left[i++]);
-        else
-            result.push_back(right[j++]);
+        if (pair.second != -1) // ignore the fake element
+            small_elements.push_back(pair.second);
+        if (pair.second == -1)
+            small_elements.push_back(pair.first);
     }
 
-    while (i < left.size())
-        result.push_back(left[i++]);
-    while (j < right.size())
-        result.push_back(right[j++]);
-
-    return result;
+    return small_elements;
 }
 
-void PmergeMe::insert_remaining_elements(std::vector<int> &sorted, const std::vector<int> &remaining)
+void PmergeMe::insert_remaining_elements(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers, const std::vector<int> &excluded)
 {
-    for (int element : remaining)
+    for (int small : smallNumbers)
     {
-        auto it = std::lower_bound(sorted.begin(), sorted.end(), element);
-        sorted.insert(it, element);
+        auto it = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), small);
+        bigNumbers.insert(it, small);
     }
+
+    for (int num : excluded)
+    {
+        auto it = std::lower_bound(bigNumbers.begin(), bigNumbers.end(), num);
+        bigNumbers.insert(it, num);
+    }
+}
+
+void PmergeMe::recursive_sort(std::vector<int> &bigNumbers, std::vector<int> &small_elements)
+{
+    if (bigNumbers.size() == 1)
+        return;
+
+    std::vector<std::pair<int, int>> pairs = make_pairs(bigNumbers);
+    std::vector<int> newBigNumbers = extract_large_elements(pairs);
+    std::vector<int> smallNumbers = extract_small_elements(pairs);
+
+    small_elements.insert(small_elements.end(), smallNumbers.begin(), smallNumbers.end());
+
+    recursive_sort(newBigNumbers, small_elements);
+
+    bigNumbers = newBigNumbers;
+}
+
+void PmergeMe::sort(std::vector<int> &arr)
+{
+    std::vector<std::pair<int, int>> pairs = make_pairs(arr);
+    std::vector<int> bigNumbers = extract_large_elements(pairs);
+    std::vector<int> smallNumbers = extract_small_elements(pairs);
+    std::vector<int> excluded;
+
+    recursive_sort(bigNumbers, excluded);
+
+    insert_remaining_elements(bigNumbers, smallNumbers, excluded);
+
+    arr = bigNumbers;
 }
 
 void PmergeMe::updateVector(const std::vector<int> &sortedElements)
