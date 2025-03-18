@@ -6,7 +6,7 @@
 #    By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/14 10:04:09 by vkuznets          #+#    #+#              #
-#    Updated: 2025/03/13 11:34:15 by viktoria         ###   ########.fr        #
+#    Updated: 2025/03/18 10:36:56 by viktoria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++20
 
 
 SRCS = main.cpp \
-	PmergeMe.cpp
+	PmergeMe.cpp \
+	VectorSorting.cpp \
+	DequeSorting.cpp \
 
 HDRS = PmergeMe.hpp \
 

@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:29:38 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/17 15:13:32 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/18 10:25:26 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,24 @@ public:
     void printVector();
     void printDeque();
 
-    std::vector<std::pair<int, int>> make_pairs(std::vector<int> &arr);
-    std::vector<int> extract_large_elements(const std::vector<std::pair<int, int>> &pairs);
-    std::vector<int> extract_small_elements(const std::vector<std::pair<int, int>> &pairs);
-    void fill_vector(int argc, char **argv, std::vector<int> &v);
-    void recursive_sort(std::vector<int> &bigNumbers, std::vector<int> &excluded);
-    void insert_remaining_elements(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers);
-    void sort(std::vector<int> &arr);
+    // vector sorting functions
+    std::vector<std::pair<int, int>> make_pairs_vec(std::vector<int> &arr);
+    std::vector<int> extract_large_element_vec(const std::vector<std::pair<int, int>> &pairs);
+    std::vector<int> extract_small_elements_vec(const std::vector<std::pair<int, int>> &pairs);
+    void fill_vector(int ac, char **av, std::vector<int> &v);
+    void recursive_sort_vec(std::vector<int> &bigNumbers, std::vector<int> &excluded);
+    void insert_remaining_elements_vec(std::vector<int> &bigNumbers, const std::vector<int> &smallNumbers);
+    void sort_vec(std::vector<int> &arr);
     void updateVector(const std::vector<int> &sortedElements);
+
+    // deque sorting functions
+    void fill_deque(int argc, char **argv, std::deque<int> &v);
+    std::deque<std::pair<int, int>> make_pairs_deq(std::deque<int> &arr);
+    std::deque<int> extract_large_elements_deq(const std::deque<std::pair<int, int>> &pairs);
+    std::deque<int> extract_small_elements_deq(const std::deque<std::pair<int, int>> &pairs);
+    void insert_remaining_elements_deq(std::deque<int> &bigNumbers, const std::deque<int> &smallNumbers);
+    void sort_deq(std::deque<int> &arr);
+    void updateDeque(const std::deque<int> &sortedElements);
 
     template <class T>
     void printContainer(T &container)
