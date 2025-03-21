@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 10:31:53 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/13 11:53:41 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/21 10:42:22 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,11 @@ BitcoinExchange::~BitcoinExchange() {}
 
 float BitcoinExchange::validateExchangeValue(std::string &str_value, bool isExchangeRate)
 {
-    float res = std::stof(str_value);
+    char *end;
+    float res = std::strtof(str_value.c_str(), &end);
+
+    if (*end != '\0')
+        throw std::runtime_error("Invalid value: " + str_value + ". Contains unexpected characters.");
 
     if (isExchangeRate && (res < MIN_VALUE || res > MAX_VALUE))
         throw std::runtime_error("Invalid value: " + str_value + ". Must be in range " + std::to_string(MIN_VALUE) + " to " + std::to_string(MAX_VALUE) + ".");

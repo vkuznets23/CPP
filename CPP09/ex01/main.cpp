@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 13:14:22 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 13:14:39 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/21 10:46:14 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
     if (ac != 2)
     {
-        std::cout << "Usage: ./RPN \"expression\"" << std::endl;
+        std::cout << "Usage: ./RPN \"inverted Polish mathematical expression\"" << std::endl;
         return 1;
     }
     try
