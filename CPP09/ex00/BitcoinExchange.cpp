@@ -5,168 +5,146 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/11 10:31:53 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/21 10:42:22 by viktoria         ###   ########.fr       */
+/*   Created: 2025/02/06 07:57:55 by viktoria          #+#    #+#             */
+/*   Updated: 2025/03/24 11:39:05 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-const float BitcoinExchange::MIN_VALUE = 0.0f;
-const float BitcoinExchange::MAX_VALUE = 1000.0f;
-const int BitcoinExchange::BASE_YEAR = 1900;
-const int BitcoinExchange::MONTH_OFFSET = 1;
-const int BitcoinExchange::DEFAULT_HOUR = 1;
-const int BitcoinExchange::DEFAULT_MINUTE = 0;
-const int BitcoinExchange::DEFAULT_SECOND = 0;
+BitcoinExchange::BitcoinExchange() { _readCSV(); }
 
-BitcoinExchange::BitcoinExchange() {}
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &o) : _DB(o._DB) {}
-BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &o)
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &src) : _csvData(src._csvData) {}
+
+BitcoinExchange &BitcoinExchange::operator=(BitcoinExchange const &src)
 {
-    if (this != &o)
+    if (this != &src)
     {
-        _DB = o._DB;
+        _csvData.clear();
+        _csvData = src._csvData;
     }
     return *this;
 }
 
 BitcoinExchange::~BitcoinExchange() {}
 
-float BitcoinExchange::validateExchangeValue(std::string &str_value, bool isExchangeRate)
+void BitcoinExchange::_readCSV()
 {
-    char *end;
-    float res = std::strtof(str_value.c_str(), &end);
-
-    if (*end != '\0')
-        throw std::runtime_error("Invalid value: " + str_value + ". Contains unexpected characters.");
-
-    if (isExchangeRate && (res < MIN_VALUE || res > MAX_VALUE))
-        throw std::runtime_error("Invalid value: " + str_value + ". Must be in range " + std::to_string(MIN_VALUE) + " to " + std::to_string(MAX_VALUE) + ".");
-
-    return res;
-}
-
-void BitcoinExchange::parseDate(const std::string &dateString, struct tm &date)
-{
-    std::stringstream dateStream(dateString);
-    char separator;
-    dateStream >> date.tm_year >> separator >> date.tm_mon >> separator >> date.tm_mday;
-
-    date.tm_year -= BASE_YEAR;
-    date.tm_mon -= MONTH_OFFSET;
-    date.tm_hour = DEFAULT_HOUR;
-    date.tm_min = DEFAULT_MINUTE;
-    date.tm_sec = DEFAULT_SECOND;
-}
-
-void BitcoinExchange::normalizeDate(const struct tm &date, struct tm &normalizedDate)
-{
-    normalizedDate = date;
-    mktime(&normalizedDate);
-}
-
-bool BitcoinExchange::isInvalidDate(const struct tm &date, const struct tm &normalizedDate)
-{
-    return date.tm_year != normalizedDate.tm_year || date.tm_mon != normalizedDate.tm_mon || date.tm_mday != normalizedDate.tm_mday;
-}
-
-void BitcoinExchange::validateDateFormat(std::string &dateString)
-{
-    struct tm date, normalizedDate;
-
-    parseDate(dateString, date);
-    normalizeDate(date, normalizedDate);
-
-    if (isInvalidDate(date, normalizedDate))
-        throw std::runtime_error("Invalid date: " + dateString);
-}
-
-void BitcoinExchange::printExchangeRates()
-{
-    for (std::map<std::string, float>::const_iterator itr = _DB.begin(); itr != _DB.end(); itr++)
-        std::cout << itr->first << " " << itr->second << std::endl;
-}
-
-void BitcoinExchange::loadExchangeRates()
-{
-    std::string line, date, str_rate;
-    float rate;
-
-    std::ifstream inputFile("./data.csv");
-    if (!inputFile.is_open())
-        throw(std::runtime_error("Couldn't load rates file"));
-    if (!std::getline(inputFile, line) || line != "date,exchange_rate")
-        throw(std::runtime_error("Invalid rates file"));
-
-    while (std::getline(inputFile, line))
+    std::ifstream infile("data.csv");
+    if (!infile)
+        throw std::runtime_error("failed to open file: data.csv");
+    std::string line;
+    if (!std::getline(infile, line) || line != "date,exchange_rate")
+        throw std::runtime_error("invalid database file: first line is not: date,exchange_rate");
+    while (std::getline(infile, line))
     {
         try
         {
-            tie(date, str_rate) = BitcoinExchange::splitLine(line, ",");
-            BitcoinExchange::validateDateFormat(date);
-            rate = BitcoinExchange::validateExchangeValue(str_rate, false);
-            _DB.insert(std::make_pair(date, rate));
+            std::string date;
+            float rate;
+            std::stringstream streamLine(line);
+            getline(streamLine, date, ',');
+            BitcoinExchange::checkInputFileValidDate(date);
+            streamLine >> rate;
+            _csvData.insert({date, rate});
         }
         catch (std::exception &e)
         {
-            std::cerr << "Error in rates file: " << e.what() << std::endl;
+            _csvData.clear();
+            throw std::runtime_error("database loading failed: " + std::string(e.what()));
         }
+    }
+    infile.close();
+}
+
+void BitcoinExchange::checkInputFileLine(std::string line)
+{
+    std::regex lineFormat(R"(\d{4}-\d{2}-\d{2}\s*\|\s*-?\d+(\.\d+)?)");
+    if (!std::regex_match(line, lineFormat))
+    {
+        throw std::runtime_error("bad input: " + line);
     }
 }
 
-void BitcoinExchange::exchange(const char *toExchange)
+std::string BitcoinExchange::trimSpaces(std::string str)
 {
-    std::string line, date, closest_date, str_quantity;
-    float quantity;
-    std::map<std::string, float>::iterator itr;
+    size_t first = str.find_first_not_of(" ");
+    if (first == std::string::npos)
+        return "";
+    size_t last = str.find_last_not_of(" ");
+    return (str.substr(first, (last - first + 1)));
+}
 
-    std::ifstream inputFile(toExchange);
-    if (!inputFile.is_open())
-        throw(std::runtime_error("Couldn't load exchange file"));
-    if (!std::getline(inputFile, line) || line != "date | value")
-        throw(std::runtime_error("Invalid exchange file"));
+void BitcoinExchange::checkInputFileValidDate(std::string date)
+{
+    std::istringstream streamDate(date);
+    std::tm tm = {};
+    streamDate >> std::get_time(&tm, "%Y-%m-%d");
+    if (streamDate.fail())
+        throw std::runtime_error("not a valid date: " + date);
+    tm.tm_isdst = -1;
+    time_t timeCheck = std::mktime(&tm);
+    if (timeCheck == -1)
+        throw std::runtime_error("not a valid date: " + date);
+    char buffer[11];
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d", &tm);
+    if (date != buffer)
+        throw std::runtime_error("not a valid date: " + date);
+}
 
-    while (std::getline(inputFile, line))
+void BitcoinExchange::checkInputFileValidValue(float *value, std::string stringFloatValue)
+{
+    *value = stof(stringFloatValue);
+    if (*value < 0 || *value > 1000)
+        throw std::runtime_error("not a valid value: " + stringFloatValue + ", value must be in range 0 / 1000");
+}
+
+void BitcoinExchange::performExchange(std::string path)
+{
+    std::ifstream infile(path);
+    if (!infile)
+        throw std::runtime_error("failed to open file: " + path);
+    std::string line;
+    if (!std::getline(infile, line) || line != "date | value")
+        throw std::runtime_error("invalid input file: first line is not: date | value");
+    while (std::getline(infile, line))
     {
         try
         {
-            tie(date, str_quantity) = BitcoinExchange::splitLine(line, " | ");
-            BitcoinExchange::validateDateFormat(date);
-            quantity = BitcoinExchange::validateExchangeValue(str_quantity, true);
-            if (_DB.find(date) == _DB.end())
-            {
-                itr = _DB.lower_bound(date);
-                closest_date = (itr == _DB.begin()) ? itr->first : std::prev(itr)->first;
-            }
+            BitcoinExchange::checkInputFileLine(line);
+            std::string date;
+            float value;
+            std::string stringFloatValue;
+            std::stringstream streamLine(line);
+            getline(streamLine, date, '|');
+            date = trimSpaces(date);
+            getline(streamLine, stringFloatValue);
+            stringFloatValue = trimSpaces(stringFloatValue);
+            BitcoinExchange::checkInputFileValidDate(date);
+            BitcoinExchange::checkInputFileValidValue(&value, stringFloatValue);
+            std::map<std::string, float>::iterator i = _csvData.find(date);
+            if (i != _csvData.end())
+                std::cout << date << " => " << value << " = " << (i->second * value) << std::endl;
             else
-                closest_date = date;
-            std::cout << date << " => " << quantity << " = " << quantity * _DB[closest_date] << std::endl;
+            {
+                std::map<std::string, float>::iterator j = _csvData.lower_bound(date);
+                if (j == _csvData.begin())
+                {
+                    std::cout << "Warning: no closest lower date found for: " << date << " - closest upper date exchange is: "
+                              << j->first << " => " << value << " = " << (j->second * value) << std::endl;
+                }
+                else
+                {
+                    --j;
+                    std::string closestLowerDate = j->first;
+                    std::cout << closestLowerDate << " => " << value << " = " << (j->second * value) << std::endl;
+                }
+            }
         }
         catch (std::exception &e)
         {
-            std::cerr << "Error in exchange file: " << e.what() << std::endl;
+            std::cout << "Error in input file: " << e.what() << std::endl;
         }
     }
-}
-
-std::tuple<std::string, std::string> BitcoinExchange::splitLine(std::string line, std::string delimiter)
-{
-    std::string left, right;
-    size_t delim_pos;
-
-    if (!line.empty())
-        delim_pos = line.find(delimiter);
-
-    if (line.empty() || delim_pos == std::string::npos)
-        throw(std::runtime_error("Invalid line: \"" + line + "\""));
-
-    left = line.substr(0, delim_pos);
-    delim_pos += delimiter.length();
-    right = line.substr(delim_pos, line.length() - delim_pos);
-
-    if (left.empty() || right.empty())
-        throw std::runtime_error("lineSplit: empty left or right part");
-
-    return std::make_tuple(left, right);
+    infile.close();
 }

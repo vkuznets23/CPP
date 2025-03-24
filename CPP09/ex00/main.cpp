@@ -6,7 +6,7 @@
 /*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 11:01:18 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/11 12:33:17 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/24 11:38:51 by viktoria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main(int ac, char **av)
     try
     {
         BitcoinExchange ex;
-        ex.exchange(av[1]);
+        ex.performExchange(av[1]);
     }
     catch (std::exception &e)
     {
