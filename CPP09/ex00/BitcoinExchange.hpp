@@ -3,38 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 07:57:54 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/24 11:38:48 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/25 10:30:01 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <ctime>
+#include <fstream>
+#include <iomanip>
 #include <iostream>
 #include <map>
-#include <fstream>
-#include <sstream>
 #include <regex>
-#include <iomanip>
-#include <ctime>
+#include <sstream>
 
 class BitcoinExchange
 {
-private:
+  private:
     std::map<std::string, float> _csvData;
-    void _readCSV();
+    void _loadExchangeRates();
 
-public:
+  public:
     BitcoinExchange();
     BitcoinExchange(BitcoinExchange const &src);
     BitcoinExchange &operator=(BitcoinExchange const &src);
     ~BitcoinExchange();
 
     void performExchange(std::string path);
-    void checkInputFileLine(std::string line);
+    void validateInputLine(std::string line);
     std::string trimSpaces(std::string str);
-    void checkInputFileValidDate(std::string date);
-    void checkInputFileValidValue(float *value, std::string stringFloatValue);
+    void validateDate(std::string date);
+    void validateValue(float *value, std::string stringFloatValue);
 };

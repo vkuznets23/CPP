@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: viktoria <viktoria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: vkuznets <vkuznets@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/11 14:29:38 by viktoria          #+#    #+#             */
-/*   Updated: 2025/03/18 10:25:26 by viktoria         ###   ########.fr       */
+/*   Updated: 2025/03/18 11:08:56 by vkuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <vector>
-#include <iomanip>
-#include <deque>
-#include <sstream>
-#include <iostream>
-#include <ctime>
 #include <algorithm>
+#include <chrono>
+#include <deque>
+#include <iomanip>
+#include <iostream>
+#include <sstream>
+#include <vector>
 
 class PmergeMe
 {
-private:
+  private:
     std::vector<int> _vec;
     std::deque<int> _deq;
 
-public:
+  public:
     PmergeMe();
     PmergeMe(char **av);
     PmergeMe(const PmergeMe &o);
@@ -54,8 +54,7 @@ public:
     void sort_deq(std::deque<int> &arr);
     void updateDeque(const std::deque<int> &sortedElements);
 
-    template <class T>
-    void printContainer(T &container)
+    template <class T> void printContainer(T &container)
     {
         for (int i : container)
         {
